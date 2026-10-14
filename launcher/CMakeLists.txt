@@ -50,6 +50,10 @@ set(CORE_SOURCES
     InstanceImportTask.h
     InstanceImportTask.cpp
 
+    # Saved recipes for new instances
+    InstanceTemplate.h
+    InstanceTemplate.cpp
+
     # Resource downloading task
     ResourceDownloadTask.h
     ResourceDownloadTask.cpp
@@ -313,6 +317,8 @@ set(MINECRAFT_SOURCES
     minecraft/MojangDownloadInfo.h
     minecraft/VanillaInstanceCreationTask.cpp
     minecraft/VanillaInstanceCreationTask.h
+    minecraft/TemplateInstanceCreationTask.cpp
+    minecraft/TemplateInstanceCreationTask.h
     minecraft/VersionFile.cpp
     minecraft/VersionFile.h
     minecraft/VersionFilterData.h
@@ -967,6 +973,9 @@ SET(LAUNCHER_SOURCES
     ui/pages/modplatform/CustomPage.cpp
     ui/pages/modplatform/CustomPage.h
 
+    ui/pages/modplatform/TemplatePage.cpp
+    ui/pages/modplatform/TemplatePage.h
+
     ui/pages/modplatform/ResourcePage.cpp
     ui/pages/modplatform/ResourcePage.h
     ui/pages/modplatform/ResourceModel.cpp
@@ -1083,6 +1092,8 @@ SET(LAUNCHER_SOURCES
     ui/dialogs/NewComponentDialog.h
     ui/dialogs/NewInstanceDialog.cpp
     ui/dialogs/NewInstanceDialog.h
+    ui/dialogs/SaveTemplateDialog.cpp
+    ui/dialogs/SaveTemplateDialog.h
     ui/dialogs/NewsDialog.cpp
     ui/dialogs/NewsDialog.h
     ui/pagedialog/PageDialog.cpp
@@ -1241,6 +1252,7 @@ qt_wrap_ui(LAUNCHER_UI
     ui/pages/modplatform/atlauncher/AtlOptionalModDialog.ui
     ui/pages/modplatform/atlauncher/AtlPage.ui
     ui/pages/modplatform/CustomPage.ui
+    ui/pages/modplatform/TemplatePage.ui
     ui/pages/modplatform/ResourcePage.ui
     ui/pages/modplatform/flame/FlamePage.ui
     ui/pages/modplatform/legacy_ftb/Page.ui
@@ -1263,6 +1275,7 @@ qt_wrap_ui(LAUNCHER_UI
     ui/dialogs/ProfileSetupDialog.ui
     ui/dialogs/ProgressDialog.ui
     ui/dialogs/NewInstanceDialog.ui
+    ui/dialogs/SaveTemplateDialog.ui
     ui/dialogs/NetworkJobFailedDialog.ui
     ui/dialogs/NewComponentDialog.ui
     ui/dialogs/NewsDialog.ui
