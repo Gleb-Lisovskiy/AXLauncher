@@ -337,6 +337,8 @@ set(MINECRAFT_SOURCES
     minecraft/mod/tasks/LocalResourceCopyTask.h
     minecraft/mod/Mod.h
     minecraft/mod/Mod.cpp
+    minecraft/mod/ModConflict.h
+    minecraft/mod/ModConflict.cpp
     minecraft/mod/ModDetails.h
     minecraft/mod/ModFolderModel.h
     minecraft/mod/ModFolderModel.cpp
@@ -1094,6 +1096,8 @@ SET(LAUNCHER_SOURCES
     ui/dialogs/NewInstanceDialog.h
     ui/dialogs/SaveTemplateDialog.cpp
     ui/dialogs/SaveTemplateDialog.h
+    ui/dialogs/ModConflictsDialog.cpp
+    ui/dialogs/ModConflictsDialog.h
     ui/dialogs/EditTemplateDialog.cpp
     ui/dialogs/EditTemplateDialog.h
     ui/dialogs/NewsDialog.cpp
@@ -1278,6 +1282,7 @@ qt_wrap_ui(LAUNCHER_UI
     ui/dialogs/ProgressDialog.ui
     ui/dialogs/NewInstanceDialog.ui
     ui/dialogs/SaveTemplateDialog.ui
+    ui/dialogs/ModConflictsDialog.ui
     ui/dialogs/EditTemplateDialog.ui
     ui/dialogs/NetworkJobFailedDialog.ui
     ui/dialogs/NewComponentDialog.ui
