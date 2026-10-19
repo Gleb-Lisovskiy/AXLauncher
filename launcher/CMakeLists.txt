@@ -466,6 +466,8 @@ set(JAVA_SOURCES
 )
 
 set(TRANSLATIONS_SOURCES
+    translations/ForkTranslations.h
+    translations/ForkTranslations.cpp
     translations/TranslationsModel.h
     translations/TranslationsModel.cpp
     translations/POTranslator.h
@@ -1447,6 +1449,15 @@ if(${Launcher_USE_PCH})
 endif()
 
 target_link_libraries(${Launcher_Name} Launcher_logic)
+
+if(Launcher_Fork_Translations)
+    add_custom_command(TARGET ${Launcher_Name} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${Launcher_Name}>/translations"
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Launcher_Fork_Translations}
+                "$<TARGET_FILE_DIR:${Launcher_Name}>/translations"
+        COMMENT "Copying the fork's translation catalogs next to the executable")
+    install(FILES ${Launcher_Fork_Translations} DESTINATION "share/${Launcher_Name}/translations" COMPONENT launcher)
+endif()
 
 if(DEFINED Launcher_APP_BINARY_NAME)
     set_target_properties(${Launcher_Name} PROPERTIES OUTPUT_NAME "${Launcher_APP_BINARY_NAME}")
