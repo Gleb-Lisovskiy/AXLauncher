@@ -1886,8 +1886,18 @@ QString Application::getJarPath(QString jarFile)
 #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_OPENBSD)
         FS::PathCombine(m_rootPath, "share", BuildConfig.LAUNCHER_NAME),
 #endif
+#if defined(Q_OS_WIN32)
+        FS::PathCombine(applicationDirPath(), "jars"),
+        FS::PathCombine(m_rootPath, "jars"),
+        applicationDirPath(),
+        FS::PathCombine(m_rootPath, ""),
+        FS::PathCombine(applicationDirPath(), "..", "jars"),
+        FS::PathCombine(m_rootPath, "..", "jars"),
+        FS::PathCombine(applicationDirPath(), "..", "..", "jars"),
+#else
         FS::PathCombine(m_rootPath, "jars"), FS::PathCombine(applicationDirPath(), "jars"),
         FS::PathCombine(applicationDirPath(), "..", "jars")  // from inside build dir, for debuging
+#endif
     };
     for (QString p : potentialPaths) {
         QString jarPath = FS::PathCombine(p, jarFile);
