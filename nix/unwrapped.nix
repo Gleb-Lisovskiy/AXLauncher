@@ -4,6 +4,7 @@
   cmake,
   cmark,
   extra-cmake-modules,
+  pkg-config,
   gamemode,
   jdk17,
   kdePackages,
@@ -65,6 +66,7 @@ stdenv.mkDerivation {
     cmake
     ninja
     kdePackages.extra-cmake-modules
+    pkg-config
     jdk17
     stripJavaArchivesHook
   ];
